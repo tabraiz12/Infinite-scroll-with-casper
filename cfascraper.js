@@ -1,9 +1,7 @@
 var links = [];
-var authour = [];
 var casper1 = require('casper').create();
-var casper = require('casper').create();
 var last,names;
-var list = range(1, 60);
+var list = range(1, 1);
 var fs = require('fs');
 var utils = require('utils');
 
@@ -37,17 +35,20 @@ casper.on('remote.message', function(msg) {
 // authour.push(msg);
 });
 
+
+
 casper.each(list, function(self, i) {
-    self.wait(1000, function() {
+    self.wait(3, function() {
         last = i;
         this.page.scrollPosition = { top: this.page.scrollPosition["top"] + 10000, left: 0 };
 
     });
 });
 
+
 casper.then(function() {
     // aggregate results for the 'casperjs' search
-    // this.fill('form[action="/search/"]', { q: 'pen' }, true);
+    // this.fill('formQ[action="/search/"]', { q: 'pen' }, true);
 
     links = this.evaluate(getLinks);
 });
