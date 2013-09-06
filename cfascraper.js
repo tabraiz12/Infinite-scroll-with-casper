@@ -34,7 +34,7 @@ casper.start('http://www.cfainstitute.org/community/membership/directory/pages/r
 casper.on('remote.message', function(msg) {
 // authour.push(msg);
 });
-
+    
 
 
 casper.each(list, function(self, i) {
